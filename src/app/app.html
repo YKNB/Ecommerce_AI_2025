@@ -1,0 +1,27 @@
+
+<!-- Simple app layout: header + router outlet -->
+<header class="app-header" style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#2c3e50;color:#fff">
+  <div style="display:flex;align-items:center;gap:16px">
+    <h1 style="margin:0;font-size:18px">Ecommerce App</h1>
+    <nav>
+      <a routerLink="/products" style="color:#fff;margin-right:12px;text-decoration:none">Products</a>
+      <a routerLink="/cart" style="color:#fff;text-decoration:none">Cart</a>
+    </nav>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <!-- badge cart -->
+    <a routerLink="/cart" style="color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:8px">
+      <span>Cart</span>
+      <span *ngIf="cartCount() > 0" style="background:#e74c3c;border-radius:10px;padding:2px 8px;font-size:12px">{{ cartCount() }}</span>
+    </a>
+    <span style="opacity:.9">Guest</span>
+  </div>
+</header>
+
+<main style="padding:20px">
+  <router-outlet></router-outlet>
+  <app-toast></app-toast>
+</main>
+
+
+<router-outlet />
